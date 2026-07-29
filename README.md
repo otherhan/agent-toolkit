@@ -28,6 +28,10 @@ Start a new Codex task after installing or updating a plugin so newly available 
 | Plugin | Ownership | Purpose |
 | --- | --- | --- |
 | `media-tools` | First-party | Local media processing and verification |
+| `upstream-frontend-design` | Anthropic / Apache-2.0 | Distinctive production frontend design |
+| `upstream-programmatic-seo` | Corey Haines / MIT | Scalable SEO page strategy and quality |
+| `upstream-ui-ux-pro-max` | Next Level Builder / MIT | Searchable UI/UX design intelligence |
+| `upstream-web-design-guidelines` | Vercel / MIT | Web interface review and accessibility checks |
 
 Third-party modules are pinned to an upstream commit, retain attribution and licensing, and are updated through reviewed pull requests.
 

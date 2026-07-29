@@ -1,0 +1,4 @@
+interface:
+  display_name: "UI/UX Pro Max"
+  short_description: "Apply searchable UI and UX design intelligence"
+  default_prompt: "Use $ui-ux-pro-max to recommend and apply an appropriate UI/UX system."

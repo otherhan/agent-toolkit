@@ -1,0 +1,37 @@
+{
+  "name": "upstream-programmatic-seo",
+  "version": "0.1.0+upstream.7868cb9",
+  "description": "Corey Haines' programmatic SEO skill, vendored and version-locked for Codex.",
+  "author": {
+    "name": "Corey Haines",
+    "url": "https://github.com/coreyhaines31"
+  },
+  "homepage": "https://github.com/coreyhaines31/marketingskills/tree/main/skills/programmatic-seo",
+  "repository": "https://github.com/coreyhaines31/marketingskills",
+  "license": "MIT",
+  "keywords": [
+    "seo",
+    "programmatic-seo",
+    "marketing",
+    "growth",
+    "upstream"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Programmatic SEO",
+    "shortDescription": "Plan useful SEO pages at scale without thin content.",
+    "longDescription": "Corey Haines' framework for selecting scalable SEO playbooks, designing data-backed page templates, planning internal linking, and validating page quality.",
+    "developerName": "Corey Haines",
+    "category": "Marketing",
+    "capabilities": [
+      "Programmatic SEO strategy",
+      "Page template planning",
+      "Scaled content quality"
+    ],
+    "defaultPrompt": "Use $programmatic-seo to design a scalable SEO page strategy.",
+    "brandColor": "#15803D",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "logoDark": "./assets/icon-dark.svg"
+  }
+}

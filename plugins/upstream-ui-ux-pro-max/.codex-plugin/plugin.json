@@ -1,0 +1,37 @@
+{
+  "name": "upstream-ui-ux-pro-max",
+  "version": "0.1.0+upstream.4857a2c",
+  "description": "Next Level Builder's UI/UX design intelligence skill, vendored and version-locked for Codex.",
+  "author": {
+    "name": "Next Level Builder",
+    "url": "https://github.com/nextlevelbuilder"
+  },
+  "homepage": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+  "repository": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+  "license": "MIT",
+  "keywords": [
+    "ui",
+    "ux",
+    "design-system",
+    "accessibility",
+    "upstream"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "UI/UX Pro Max",
+    "shortDescription": "Search design styles, palettes, typography, UX rules, and stacks.",
+    "longDescription": "Next Level Builder's searchable UI/UX intelligence library covering visual styles, color systems, font pairing, accessibility, interaction, charts, and implementation guidance.",
+    "developerName": "Next Level Builder",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Design system guidance",
+      "UI/UX recommendations",
+      "Accessibility and interaction review"
+    ],
+    "defaultPrompt": "Use $ui-ux-pro-max to recommend and apply an appropriate UI/UX system.",
+    "brandColor": "#7C3AED",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "logoDark": "./assets/icon-dark.svg"
+  }
+}

@@ -5,6 +5,8 @@ the source of truth for installed plugin releases.
 
 ## Unreleased
 
+- Added four separately installable, commit-pinned upstream plugins for
+  frontend design, programmatic SEO, UI/UX intelligence, and web design review.
 - Added unified validation and local Codex installation entry points.
 - Documented public/private boundaries, release checks, and upstream handling.
 - Reused the existing pinned-upstream automation instead of introducing a

@@ -1,0 +1,37 @@
+{
+  "name": "upstream-web-design-guidelines",
+  "version": "0.1.0+upstream.7c180d9",
+  "description": "Vercel's web design review skill, vendored and version-locked for Codex.",
+  "author": {
+    "name": "Vercel",
+    "url": "https://github.com/vercel-labs"
+  },
+  "homepage": "https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines",
+  "repository": "https://github.com/vercel-labs/agent-skills",
+  "license": "MIT",
+  "keywords": [
+    "web-design",
+    "accessibility",
+    "review",
+    "vercel",
+    "upstream"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Web Design Guidelines",
+    "shortDescription": "Audit web UI for accessibility, performance, and UX issues.",
+    "longDescription": "Vercel's concise review workflow that fetches the current Web Interface Guidelines and applies them to selected frontend files with actionable file-and-line findings.",
+    "developerName": "Vercel",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Web UI review",
+      "Accessibility audit",
+      "Interface best-practice checks"
+    ],
+    "defaultPrompt": "Use $web-design-guidelines to review these frontend files.",
+    "brandColor": "#2563EB",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "logoDark": "./assets/icon-dark.svg"
+  }
+}

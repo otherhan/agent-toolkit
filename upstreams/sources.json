@@ -1,4 +1,68 @@
 {
   "schemaVersion": 1,
-  "modules": []
+  "modules": [
+    {
+      "id": "frontend-design",
+      "plugin": "upstream-frontend-design",
+      "repository": "https://github.com/anthropics/skills.git",
+      "ref": "main",
+      "sourcePath": "skills/frontend-design",
+      "destination": "plugins/upstream-frontend-design/skills/frontend-design",
+      "mode": "vendor",
+      "updatePolicy": "pull-request",
+      "overlayPath": "overlays/frontend-design",
+      "transforms": {
+        "stripFrontmatterKeys": ["license"]
+      }
+    },
+    {
+      "id": "programmatic-seo",
+      "plugin": "upstream-programmatic-seo",
+      "repository": "https://github.com/coreyhaines31/marketingskills.git",
+      "ref": "main",
+      "sourcePath": "skills/programmatic-seo",
+      "destination": "plugins/upstream-programmatic-seo/skills/programmatic-seo",
+      "mode": "vendor",
+      "updatePolicy": "pull-request",
+      "overlayPath": "overlays/programmatic-seo",
+      "transforms": {
+        "stripFrontmatterKeys": ["metadata"]
+      }
+    },
+    {
+      "id": "ui-ux-pro-max",
+      "plugin": "upstream-ui-ux-pro-max",
+      "repository": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git",
+      "ref": "main",
+      "sourcePath": ".claude/skills/ui-ux-pro-max",
+      "destination": "plugins/upstream-ui-ux-pro-max/skills/ui-ux-pro-max",
+      "mode": "vendor",
+      "updatePolicy": "pull-request",
+      "overlayPath": "overlays/ui-ux-pro-max",
+      "transforms": {
+        "stripTrailingWhitespaceSuffixes": [".py"],
+        "replaceStrings": {
+          "python \"${CLAUDE_PLUGIN_ROOT}/.claude/skills/ui-ux-pro-max/scripts/search.py\"": "python3 \"<skill-directory>/scripts/search.py\"",
+          "The search script lives inside this skill's own directory, not the project directory. Always invoke it by its full path — do not assume a particular working directory:": "The search script lives inside this Skill's own directory, not the project directory. Resolve `<skill-directory>` to the directory containing this `SKILL.md`, then invoke the script by that full path:"
+        }
+      }
+    },
+    {
+      "id": "web-design-guidelines",
+      "plugin": "upstream-web-design-guidelines",
+      "repository": "https://github.com/vercel-labs/agent-skills.git",
+      "ref": "main",
+      "sourcePath": "skills/web-design-guidelines",
+      "destination": "plugins/upstream-web-design-guidelines/skills/web-design-guidelines",
+      "mode": "vendor",
+      "updatePolicy": "pull-request",
+      "overlayPath": "overlays/web-design-guidelines",
+      "transforms": {
+        "stripFrontmatterKeys": ["metadata"],
+        "replaceStrings": {
+          "Use WebFetch to retrieve the latest rules.": "Use Codex's available web browsing tool to retrieve the latest rules."
+        }
+      }
+    }
+  ]
 }

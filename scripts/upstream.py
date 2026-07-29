@@ -77,11 +77,15 @@ def normalize_frontmatter(skill_file: Path, transforms: dict[str, Any]) -> None:
     strip = set(transforms.get("stripFrontmatterKeys", []))
     normalized: list[str] = ["---"]
     found_name = False
+    stripping_block = False
     for line in lines[1:end]:
+        is_top_level = bool(line) and not line[0].isspace()
         key = line.split(":", 1)[0].strip() if ":" in line else ""
-        if key in strip:
+        if is_top_level:
+            stripping_block = key in strip
+        if stripping_block:
             continue
-        if key == "name" and new_name:
+        if is_top_level and key == "name" and new_name:
             normalized.append(f"name: {new_name}")
             found_name = True
         else:
@@ -90,6 +94,34 @@ def normalize_frontmatter(skill_file: Path, transforms: dict[str, Any]) -> None:
         normalized.insert(1, f"name: {new_name}")
     normalized.extend(["---", *lines[end + 1 :]])
     skill_file.write_text("\n".join(normalized) + "\n", encoding="utf-8")
+
+
+def replace_strings(skill_file: Path, transforms: dict[str, Any]) -> None:
+    replacements = transforms.get("replaceStrings", {})
+    if not replacements:
+        return
+    text = skill_file.read_text(encoding="utf-8")
+    for old, new in replacements.items():
+        if old not in text:
+            raise RuntimeError(
+                f"replacement source not found in {skill_file}: {old!r}"
+            )
+        text = text.replace(old, new)
+    skill_file.write_text(text, encoding="utf-8")
+
+
+def strip_trailing_whitespace(staged: Path, transforms: dict[str, Any]) -> None:
+    suffixes = set(transforms.get("stripTrailingWhitespaceSuffixes", []))
+    if not suffixes:
+        return
+    for path in staged.rglob("*"):
+        if not path.is_file() or path.suffix not in suffixes:
+            continue
+        text = path.read_text(encoding="utf-8")
+        normalized = "\n".join(line.rstrip() for line in text.splitlines())
+        if text.endswith("\n"):
+            normalized += "\n"
+        path.write_text(normalized, encoding="utf-8")
 
 
 def copy_overlay(root: Path, staged: Path, overlay: str | None) -> None:
@@ -170,6 +202,8 @@ def sync_module(
         staged = Path(temp) / "staged"
         shutil.copytree(source, staged)
         normalize_frontmatter(staged / "SKILL.md", module.get("transforms", {}))
+        replace_strings(staged / "SKILL.md", module.get("transforms", {}))
+        strip_trailing_whitespace(staged, module.get("transforms", {}))
         copy_overlay(root, staged, module.get("overlayPath"))
 
         if not apply:

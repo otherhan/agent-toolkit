@@ -1,0 +1,37 @@
+{
+  "name": "upstream-frontend-design",
+  "version": "0.1.0+upstream.b29e7cf",
+  "description": "Anthropic's frontend design skill, vendored and version-locked for Codex.",
+  "author": {
+    "name": "Anthropic",
+    "url": "https://github.com/anthropics"
+  },
+  "homepage": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
+  "repository": "https://github.com/anthropics/skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "frontend",
+    "design",
+    "ui",
+    "anthropic",
+    "upstream"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Frontend Design",
+    "shortDescription": "Create distinctive, production-grade frontend interfaces.",
+    "longDescription": "Anthropic's design guidance for choosing a strong visual direction and implementing polished typography, color, motion, layout, and interface details.",
+    "developerName": "Anthropic",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Frontend visual direction",
+      "Production UI design",
+      "Interface polish"
+    ],
+    "defaultPrompt": "Use $frontend-design to create a distinctive, production-grade interface.",
+    "brandColor": "#E11D73",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "logoDark": "./assets/icon-dark.svg"
+  }
+}
