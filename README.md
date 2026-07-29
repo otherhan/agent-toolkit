@@ -13,7 +13,6 @@ Install one plugin at a time:
 
 ```bash
 codex plugin add media-tools@agent-toolkit --json
-codex plugin add upstream-agent-browser@agent-toolkit --json
 ```
 
 Refresh the Git-backed marketplace:
@@ -29,7 +28,6 @@ Start a new Codex task after installing or updating a plugin so newly available 
 | Plugin | Ownership | Purpose |
 | --- | --- | --- |
 | `media-tools` | First-party | Local media processing and verification |
-| `upstream-agent-browser` | Third-party mirror | Version-locked Agent Browser guidance from Vercel Labs |
 
 Third-party modules are pinned to an upstream commit, retain attribution and licensing, and are updated through reviewed pull requests.
 
