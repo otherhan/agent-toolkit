@@ -1,0 +1,31 @@
+{
+  "name": "a-stock-data",
+  "version": "0.1.0",
+  "description": "Codex-native, source-attributed China A-share market data commands.",
+  "author": {
+    "name": "otherhan",
+    "url": "https://github.com/otherhan"
+  },
+  "homepage": "https://github.com/otherhan/a-stock-data-codex",
+  "repository": "https://github.com/otherhan/a-stock-data-codex",
+  "license": "Apache-2.0",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "A-Share Data",
+    "shortDescription": "Query sourced A-share data with tested Codex commands.",
+    "longDescription": "Fetch A-share quotes, research reports, company information, market news, and valuation calculations through bounded JSON commands with provider attribution and timestamps.",
+    "developerName": "otherhan",
+    "category": "Productivity",
+    "capabilities": [
+      "A-share quotes",
+      "Research reports",
+      "Market news",
+      "Valuation calculations"
+    ],
+    "defaultPrompt": "Fetch current A-share facts with source and timestamp.",
+    "brandColor": "#0F766E",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "logoDark": "./assets/icon-dark.svg"
+  }
+}

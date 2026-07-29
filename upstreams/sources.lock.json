@@ -16,6 +16,10 @@
     "web-design-guidelines": {
       "resolvedCommit": "7c180d9044c9ae2b442b567aad4e42a28dd5ed62",
       "syncedAt": "2026-07-29T11:14:26Z"
+    },
+    "a-stock-data": {
+      "resolvedCommit": "3cb71c14678e63ffb270fa21ceac0e5d525b1146",
+      "syncedAt": "2026-07-29T12:01:32Z"
     }
   }
 }

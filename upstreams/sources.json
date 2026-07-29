@@ -63,6 +63,16 @@
           "Use WebFetch to retrieve the latest rules.": "Use Codex's available web browsing tool to retrieve the latest rules."
         }
       }
+    },
+    {
+      "id": "a-stock-data",
+      "plugin": "a-stock-data",
+      "repository": "https://github.com/otherhan/a-stock-data-codex.git",
+      "ref": "main",
+      "sourcePath": "skills/a-stock-data",
+      "destination": "plugins/a-stock-data/skills/a-stock-data",
+      "mode": "vendor",
+      "updatePolicy": "pull-request"
     }
   ]
 }
