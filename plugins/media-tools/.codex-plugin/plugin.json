@@ -1,12 +1,12 @@
 {
   "name": "media-tools",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Batch video compression and output verification workflows maintained by Agent Toolkit.",
   "author": {
-    "name": "Agent Toolkit Maintainers",
-    "url": "https://github.com/otherhan/agent-toolkit"
+    "name": "otherhan",
+    "url": "https://github.com/otherhan"
   },
-  "homepage": "https://github.com/otherhan/agent-toolkit/tree/main/plugins/media-tools",
+  "homepage": "https://github.com/otherhan/agent-toolkit",
   "repository": "https://github.com/otherhan/agent-toolkit",
   "license": "Apache-2.0",
   "keywords": ["media", "video", "ffmpeg", "automation"],
@@ -15,7 +15,7 @@
     "displayName": "Media Tools",
     "shortDescription": "Batch-compress and verify local video files.",
     "longDescription": "Batch-compress MP4, MOV, and M4V files to a consistent H.264/AAC profile, safely handle filenames and resumable outputs, and verify every result with ffprobe.",
-    "developerName": "Agent Toolkit",
+    "developerName": "otherhan",
     "category": "Productivity",
     "capabilities": ["Video compression", "Output verification"],
     "defaultPrompt": "Compress the videos in this folder and verify the outputs.",
