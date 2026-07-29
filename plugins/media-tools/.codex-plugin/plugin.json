@@ -1,7 +1,7 @@
 {
   "name": "media-tools",
-  "version": "0.1.0",
-  "description": "Reusable media processing skills maintained by Agent Toolkit.",
+  "version": "0.1.1",
+  "description": "Batch video compression and output verification workflows maintained by Agent Toolkit.",
   "author": {
     "name": "Agent Toolkit Maintainers",
     "url": "https://github.com/otherhan/agent-toolkit"
@@ -13,11 +13,15 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Media Tools",
-    "shortDescription": "Process video, audio, and image assets safely.",
-    "longDescription": "Media Tools packages focused, reusable workflows for local media processing and verification.",
+    "shortDescription": "Batch-compress and verify local video files.",
+    "longDescription": "Batch-compress MP4, MOV, and M4V files to a consistent H.264/AAC profile, safely handle filenames and resumable outputs, and verify every result with ffprobe.",
     "developerName": "Agent Toolkit",
     "category": "Productivity",
-    "capabilities": ["Media processing", "Local automation"],
-    "defaultPrompt": "Compress the videos in this folder and verify the outputs."
+    "capabilities": ["Video compression", "Output verification"],
+    "defaultPrompt": "Compress the videos in this folder and verify the outputs.",
+    "brandColor": "#0F766E",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "logoDark": "./assets/icon-dark.svg"
   }
 }

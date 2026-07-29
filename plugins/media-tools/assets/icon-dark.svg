@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Video compression from a source frame to a smaller verified output frame</title>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="#14B8A6"/>
+  <rect x="3" y="3" width="58" height="58" rx="15" fill="#CCFBF1" fill-opacity=".55"/>
+  <rect x="5" y="5" width="54" height="54" rx="13" fill="#14B8A6"/>
+  <rect x="10" y="13" width="42" height="31" rx="6" fill="#042F2E"/>
+  <rect x="14" y="17" width="34" height="23" rx="3" fill="#14B8A6"/>
+  <rect x="11.5" y="19" width="3" height="5" rx="1" fill="#14B8A6"/>
+  <rect x="11.5" y="27" width="3" height="5" rx="1" fill="#14B8A6"/>
+  <rect x="47.5" y="19" width="3" height="5" rx="1" fill="#14B8A6"/>
+  <rect x="47.5" y="27" width="3" height="5" rx="1" fill="#14B8A6"/>
+  <path d="M17 20h8v3h-3l6 6-2 2-6-6v3h-3z" fill="#134E4A"/>
+  <rect x="27" y="29" width="28" height="21" rx="5" fill="#F0FDFA"/>
+  <path d="M37.5 35v9l8-4.5-8-4.5z" fill="#0F766E"/>
+  <rect x="31.5" y="45" width="19" height="2" rx="1" fill="#5EEAD4"/>
+</svg>
