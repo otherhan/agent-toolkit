@@ -1,0 +1,58 @@
+name: Check upstream modules
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * 1"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: upstream-updates
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Synchronize declared upstreams
+        run: python3 scripts/upstream.py sync all --apply
+      - name: Validate synchronized marketplace
+        run: python3 scripts/validate_marketplace.py .
+      - name: Open or refresh the update pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No upstream updates."
+            exit 0
+          fi
+
+          branch="automation/upstream-updates"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C "$branch"
+          git add plugins upstreams
+          git commit -m "chore: update vendored upstream modules"
+          git push --force origin "HEAD:$branch"
+
+          if gh pr view "$branch" --json number >/dev/null 2>&1; then
+            gh pr edit "$branch" \
+              --title "chore: update vendored upstream modules" \
+              --body "Automated upstream refresh. Review Skill instructions, scripts, licensing, trigger policy, and the complete diff before merging."
+          else
+            gh pr create \
+              --base main \
+              --head "$branch" \
+              --title "chore: update vendored upstream modules" \
+              --body "Automated upstream refresh. Review Skill instructions, scripts, licensing, trigger policy, and the complete diff before merging."
+          fi

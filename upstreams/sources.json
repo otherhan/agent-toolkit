@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "modules": [
+    {
+      "id": "agent-browser",
+      "plugin": "upstream-agent-browser",
+      "repository": "https://github.com/vercel-labs/agent-browser.git",
+      "ref": "main",
+      "sourcePath": "skill-data/core",
+      "destination": "plugins/upstream-agent-browser/skills/agent-browser",
+      "license": "Apache-2.0",
+      "mode": "vendor",
+      "updatePolicy": "pull-request",
+      "transforms": {
+        "skillName": "agent-browser",
+        "stripFrontmatterKeys": ["allowed-tools"]
+      },
+      "overlayPath": "upstreams/overlays/agent-browser"
+    }
+  ]
+}

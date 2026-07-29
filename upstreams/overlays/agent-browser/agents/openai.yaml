@@ -1,0 +1,7 @@
+interface:
+  display_name: "Agent Browser"
+  short_description: "Automate browser navigation, testing, and extraction"
+  default_prompt: "Use $agent-browser to inspect and automate this web page."
+
+policy:
+  allow_implicit_invocation: false

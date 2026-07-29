@@ -1,0 +1,23 @@
+{
+  "name": "media-tools",
+  "version": "0.1.0",
+  "description": "Reusable media processing skills maintained by Agent Toolkit.",
+  "author": {
+    "name": "Agent Toolkit Maintainers",
+    "url": "https://github.com/otherhan/agent-toolkit"
+  },
+  "homepage": "https://github.com/otherhan/agent-toolkit/tree/main/plugins/media-tools",
+  "repository": "https://github.com/otherhan/agent-toolkit",
+  "license": "Apache-2.0",
+  "keywords": ["media", "video", "ffmpeg", "automation"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Media Tools",
+    "shortDescription": "Process video, audio, and image assets safely.",
+    "longDescription": "Media Tools packages focused, reusable workflows for local media processing and verification.",
+    "developerName": "Agent Toolkit",
+    "category": "Productivity",
+    "capabilities": ["Media processing", "Local automation"],
+    "defaultPrompt": "Compress the videos in this folder and verify the outputs."
+  }
+}

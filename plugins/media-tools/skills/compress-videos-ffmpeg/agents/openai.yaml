@@ -1,0 +1,4 @@
+interface:
+  display_name: "FFmpeg Video Compression"
+  short_description: "Batch-compress videos with ffmpeg safely"
+  default_prompt: "Use $compress-videos-ffmpeg to compress the videos in the current folder into a separate output directory."
