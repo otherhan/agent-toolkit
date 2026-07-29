@@ -43,7 +43,45 @@ Third-party modules are pinned to an upstream commit, retain attribution and lic
 ## Validate
 
 ```bash
-python3 scripts/validate_marketplace.py .
+./scripts/validate.sh
+```
+
+The validation entry point checks the marketplace catalog, plugin and Skill
+layout, Python syntax, shell syntax, and SVG readability.
+
+## Maintain
+
+Work in this repository, not in the installed Codex cache:
+
+```bash
+git pull --ff-only
+./scripts/validate.sh
+git status
+```
+
+After committing and pushing a change, refresh the configured Git marketplace
+and install one plugin or every plugin into the local Codex installation:
+
+```bash
+./scripts/install-local.sh media-tools
+./scripts/install-local.sh
+```
+
+`install-local.sh` means “install into local Codex.” When this marketplace is
+configured from GitHub, the script deliberately refuses dirty or unpushed
+changes and installs from the refreshed Git snapshot.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for plugin ownership, third-party
+vendoring, and release rules. Repository-level changes are recorded in
+[CHANGELOG.md](CHANGELOG.md).
+
+## Upstream maintenance
+
+Third-party modules are declared in `upstreams/sources.json` and pinned in
+`upstreams/sources.lock.json`:
+
+```bash
+python3 scripts/upstream.py check all
 ```
 
 ## License

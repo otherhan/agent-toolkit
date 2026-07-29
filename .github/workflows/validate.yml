@@ -16,7 +16,5 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Validate marketplace structure
-        run: python3 scripts/validate_marketplace.py .
-      - name: Compile Python scripts
-        run: python3 -m compileall -q scripts
+      - name: Validate marketplace
+        run: bash scripts/validate.sh
