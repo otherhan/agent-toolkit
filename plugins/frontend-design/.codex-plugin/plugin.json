@@ -1,5 +1,5 @@
 {
-  "name": "upstream-frontend-design",
+  "name": "frontend-design",
   "version": "0.1.0+upstream.b29e7cf",
   "description": "Anthropic's frontend design skill, vendored and version-locked for Codex.",
   "author": {

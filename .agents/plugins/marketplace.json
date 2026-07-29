@@ -17,10 +17,10 @@
       "category": "Productivity"
     },
     {
-      "name": "upstream-frontend-design",
+      "name": "frontend-design",
       "source": {
         "source": "local",
-        "path": "./plugins/upstream-frontend-design"
+        "path": "./plugins/frontend-design"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -29,10 +29,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "upstream-programmatic-seo",
+      "name": "programmatic-seo",
       "source": {
         "source": "local",
-        "path": "./plugins/upstream-programmatic-seo"
+        "path": "./plugins/programmatic-seo"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -41,10 +41,10 @@
       "category": "Marketing"
     },
     {
-      "name": "upstream-ui-ux-pro-max",
+      "name": "ui-ux-pro-max",
       "source": {
         "source": "local",
-        "path": "./plugins/upstream-ui-ux-pro-max"
+        "path": "./plugins/ui-ux-pro-max"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -53,10 +53,10 @@
       "category": "Developer Tools"
     },
     {
-      "name": "upstream-web-design-guidelines",
+      "name": "web-design-guidelines",
       "source": {
         "source": "local",
-        "path": "./plugins/upstream-web-design-guidelines"
+        "path": "./plugins/web-design-guidelines"
       },
       "policy": {
         "installation": "AVAILABLE",

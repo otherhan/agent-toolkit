@@ -26,7 +26,8 @@ Every first-party plugin must:
 Before vendoring upstream content:
 
 1. Confirm the source repository and redistribution license.
-2. Create a separate `upstream-<name>` plugin.
+2. Give the plugin a clear end-user product name without exposing maintenance
+   prefixes such as `upstream-`.
 3. Add an entry to `upstreams/sources.json`.
 4. Record the resolved commit in `upstreams/sources.lock.json`.
 5. Preserve the upstream license and attribution.
@@ -35,6 +36,8 @@ Before vendoring upstream content:
 
 Do not silently copy third-party Skills into a first-party plugin. The source,
 license, resolved commit, and local adaptations must remain auditable.
+Third-party ownership belongs in plugin metadata, notices, and the upstream
+registry rather than in the user-facing plugin name.
 
 ## Validation
 

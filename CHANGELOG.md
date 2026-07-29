@@ -5,6 +5,8 @@ the source of truth for installed plugin releases.
 
 ## Unreleased
 
+- Renamed third-party plugin IDs to clean product names and kept upstream
+  ownership in metadata instead of exposing a maintenance prefix.
 - Added four separately installable, commit-pinned upstream plugins for
   frontend design, programmatic SEO, UI/UX intelligence, and web design review.
 - Added unified validation and local Codex installation entry points.
