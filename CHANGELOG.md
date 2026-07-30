@@ -5,6 +5,9 @@ the source of truth for installed plugin releases.
 
 ## Unreleased
 
+- Moved the A-share data and analysis capability to the private
+  `a-stock-analysis` plugin so the public marketplace contains only broadly
+  reusable public tools.
 - Expanded `a-stock-data` from a six-command prototype to a complete
   52-command Codex surface covering the upstream ten-layer A-share toolkit,
   independent fallbacks, dependency diagnostics, structured errors, and

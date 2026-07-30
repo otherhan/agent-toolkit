@@ -41,14 +41,6 @@ if errors:
 print("Python syntax and SVG XML are valid")
 PY
 
-PYTHONDONTWRITEBYTECODE=1 python3 \
-  "$repo_root/plugins/a-stock-data/skills/a-stock-data/scripts/build_upstream_module.py" \
-  --check
-PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover \
-  -s "$repo_root/plugins/a-stock-data/skills/a-stock-data/scripts/tests" \
-  -q
-echo "A-share endpoint contracts and offline parsers are valid"
-
 while IFS= read -r -d '' shell_script; do
   bash -n "$shell_script"
 done < <(find "$repo_root" -path "$repo_root/.git" -prune -o -type f -name '*.sh' -print0)
