@@ -1,7 +1,7 @@
 interface:
   display_name: "A-Share Data"
-  short_description: "Query China A-share market data with tested Codex commands"
-  default_prompt: "Use $a-stock-data to fetch current A-share data and explain the result with source and timestamp."
+  short_description: "Query complete sourced A-share market and company data"
+  default_prompt: "Use $a-stock-data to fetch the smallest relevant A-share dataset and explain it with provider and timestamp."
 
 policy:
   allow_implicit_invocation: false

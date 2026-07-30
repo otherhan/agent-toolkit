@@ -32,7 +32,7 @@ Start a new Codex task after installing or updating a plugin so newly available 
 | `programmatic-seo` | Corey Haines / MIT | Scalable SEO page strategy and quality |
 | `ui-ux-pro-max` | Next Level Builder / MIT | Searchable UI/UX design intelligence |
 | `web-design-guidelines` | Vercel / MIT | Web interface review and accessibility checks |
-| `a-stock-data` | Simon Lin / Apache-2.0; Codex adaptation by otherhan | Sourced A-share data through tested Codex commands |
+| `a-stock-data` | Simon Lin / Apache-2.0; Codex adaptation by otherhan | Complete sourced A-share data through 52 bounded Codex commands |
 
 Third-party modules are pinned to an upstream commit, retain attribution and licensing, and are updated through reviewed pull requests.
 

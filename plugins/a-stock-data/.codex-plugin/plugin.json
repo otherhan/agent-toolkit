@@ -1,28 +1,31 @@
 {
   "name": "a-stock-data",
-  "version": "0.1.0",
-  "description": "Codex-native, source-attributed China A-share market data commands.",
+  "version": "0.2.0",
+  "description": "Complete Codex CLI for sourced China A-share market, company, option, and sentiment data.",
   "author": {
     "name": "otherhan",
     "url": "https://github.com/otherhan"
   },
-  "homepage": "https://github.com/otherhan/a-stock-data-codex",
-  "repository": "https://github.com/otherhan/a-stock-data-codex",
+  "homepage": "https://github.com/otherhan/agent-toolkit/tree/main/plugins/a-stock-data",
+  "repository": "https://github.com/otherhan/agent-toolkit",
   "license": "Apache-2.0",
   "skills": "./skills/",
   "interface": {
     "displayName": "A-Share Data",
-    "shortDescription": "Query sourced A-share data with tested Codex commands.",
-    "longDescription": "Fetch A-share quotes, research reports, company information, market news, and valuation calculations through bounded JSON commands with provider attribution and timestamps.",
+    "shortDescription": "Query complete sourced A-share market and company data.",
+    "longDescription": "Query 52 bounded commands across quotes, K-lines, reports, signals, capital flows, fundamentals, announcements, limit markets, ETF options, sentiment, valuation, and independent fallbacks.",
     "developerName": "otherhan",
     "category": "Productivity",
     "capabilities": [
       "A-share quotes",
+      "K-lines and order books",
       "Research reports",
-      "Market news",
-      "Valuation calculations"
+      "Signals and capital flows",
+      "Fundamentals and announcements",
+      "Limit-up and ETF option data",
+      "Sentiment and valuation"
     ],
-    "defaultPrompt": "Fetch current A-share facts with source and timestamp.",
+    "defaultPrompt": "Use $a-stock-data to fetch the smallest relevant A-share dataset with provider and timestamp.",
     "brandColor": "#0F766E",
     "composerIcon": "./assets/icon.svg",
     "logo": "./assets/icon.svg",

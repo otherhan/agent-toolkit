@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
 from typing import Any, Dict
@@ -20,15 +21,11 @@ from a_stock_data import (  # noqa: E402
     valuation_metrics,
 )
 from a_stock_data.sources import retrieved_at  # noqa: E402
-
-
-CAPABILITIES = [
-    {"command": "quote", "provider": "Tencent Finance", "network": True},
-    {"command": "reports", "provider": "Eastmoney Report API", "network": True},
-    {"command": "stock-info", "provider": "Eastmoney Push2", "network": True},
-    {"command": "global-news", "provider": "Eastmoney 7x24", "network": True},
-    {"command": "valuation", "provider": "local calculation", "network": False},
-]
+from a_stock_data.full_commands import (  # noqa: E402
+    capabilities as full_capabilities,
+    dependency_status,
+    invoke,
+)
 
 
 def envelope(command: str, source_name: str, source_url: str, data: Any) -> Dict[str, Any]:
@@ -46,7 +43,16 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     capabilities = subparsers.add_parser("capabilities")
+    capabilities.add_argument("--group")
     capabilities.add_argument("--pretty", action="store_true")
+
+    doctor = subparsers.add_parser("doctor")
+    doctor.add_argument("--pretty", action="store_true")
+
+    generic = subparsers.add_parser("run")
+    generic.add_argument("endpoint")
+    generic.add_argument("--params", default="{}")
+    generic.add_argument("--pretty", action="store_true")
 
     quote = subparsers.add_parser("quote")
     quote.add_argument("tickers", nargs="+")
@@ -81,7 +87,31 @@ def build_parser() -> argparse.ArgumentParser:
 
 def run(args: argparse.Namespace) -> Dict[str, Any]:
     if args.command == "capabilities":
-        return envelope("capabilities", "local manifest", "", CAPABILITIES)
+        return envelope(
+            "capabilities",
+            "local endpoint registry",
+            "",
+            full_capabilities(args.group),
+        )
+    if args.command == "doctor":
+        dependencies = dependency_status()
+        return envelope(
+            "doctor",
+            "local runtime",
+            "",
+            {
+                "dependencies": dependencies,
+                "full_runtime_ready": all(dependencies.values()),
+                "iwencai_api_key_configured": bool(os.environ.get("IWENCAI_API_KEY")),
+            },
+        )
+    if args.command == "run":
+        try:
+            params = json.loads(args.params)
+        except json.JSONDecodeError as exc:
+            raise AStockDataError(f"--params is not valid JSON: {exc.msg}") from exc
+        endpoint, data = invoke(args.endpoint, params)
+        return envelope(args.endpoint, endpoint.provider, endpoint.source_url, data)
     if args.command == "quote":
         return envelope(
             "quote",
@@ -128,7 +158,7 @@ def main() -> int:
     try:
         output = run(args)
         exit_code = 0
-    except (AStockDataError, ValueError) as exc:
+    except Exception as exc:
         output = {
             "ok": False,
             "command": args.command,

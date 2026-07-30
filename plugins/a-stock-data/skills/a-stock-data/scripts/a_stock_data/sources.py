@@ -6,6 +6,7 @@ import json
 import math
 import random
 import time
+import http.client
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -57,6 +58,18 @@ def prefixed_ticker(value: str) -> str:
     if code.startswith(("4", "8")):
         return "bj" + code
     return "sz" + code
+
+
+def eastmoney_secid(value: str) -> str:
+    raw = value.strip().lower()
+    code = normalize_ticker(raw)
+    if raw.startswith("sh"):
+        market = 1
+    elif raw.startswith(("sz", "bj")):
+        market = 0
+    else:
+        market = 1 if code in SH_INDEX or code.startswith(("5", "6", "9")) else 0
+    return f"{market}.{code}"
 
 
 def _float(values: List[str], index: int) -> Optional[float]:
@@ -121,6 +134,10 @@ def _request_bytes(
         raise AStockDataError(f"provider returned HTTP {exc.code} for {url}") from exc
     except urllib.error.URLError as exc:
         raise AStockDataError(f"provider request failed for {url}: {exc.reason}") from exc
+    except (http.client.HTTPException, TimeoutError, OSError) as exc:
+        raise AStockDataError(
+            f"provider connection failed for {url}: {exc.__class__.__name__}"
+        ) from exc
 
 
 def _request_json(
@@ -209,14 +226,13 @@ def eastmoney_reports(code: str, pages: int = 1, timeout: int = 30) -> List[Dict
 
 def eastmoney_stock_info(code: str, timeout: int = 15) -> Dict[str, Any]:
     ticker = normalize_ticker(code)
-    market = 1 if ticker.startswith(("5", "6", "9")) else 0
     decoded = _request_json(
         STOCK_INFO_API,
         {
             "fltt": "2",
             "invt": "2",
             "fields": "f57,f58,f84,f85,f127,f116,f117,f189,f43",
-            "secid": f"{market}.{ticker}",
+            "secid": eastmoney_secid(code),
         },
         timeout=timeout,
         eastmoney=True,

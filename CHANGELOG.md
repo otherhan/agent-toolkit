@@ -5,8 +5,12 @@ the source of truth for installed plugin releases.
 
 ## Unreleased
 
-- Added the Codex-native `a-stock-data` plugin with tested JSON commands for
-  A-share quotes, reports, company information, news, and valuation math.
+- Expanded `a-stock-data` from a six-command prototype to a complete
+  52-command Codex surface covering the upstream ten-layer A-share toolkit,
+  independent fallbacks, dependency diagnostics, structured errors, and
+  bundled offline tests.
+- Made the public `a-stock-data` plugin its own release source instead of
+  vendoring an incomplete copy from the earlier Codex adaptation repository.
 - Renamed third-party plugin IDs to clean product names and kept upstream
   ownership in metadata instead of exposing a maintenance prefix.
 - Added four separately installable, commit-pinned upstream plugins for
