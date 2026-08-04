@@ -2,9 +2,14 @@
 
 ## Repository boundaries
 
-- Put reusable, redistributable plugins in this public marketplace.
-- Put personal, restricted, customer-specific, or secret-dependent workflows
-  in `agent-toolkit-self`.
+- Put explicit public submissions and privately verified, stable plugins in
+  this public marketplace.
+- Incubate unverified or still-evolving GitHub Skills in `agent-toolkit-self`
+  until they are approved for public release.
+- Keep personal, restricted, customer-specific, or secret-dependent workflows
+  in `agent-toolkit-self` permanently.
+- Both marketplaces may vendor and follow GitHub Skill repositories using the
+  same pinned-upstream mechanism.
 - Edit the source repository under `plugins/`; never edit
   `~/.codex/plugins/cache/` or marketplace snapshots under `~/.codex/.tmp/`.
 
