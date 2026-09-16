@@ -40,6 +40,7 @@
       "updatePolicy": "pull-request",
       "overlayPath": "overlays/ui-ux-pro-max",
       "transforms": {
+        "excludePaths": ["scripts/tests"],
         "stripTrailingWhitespaceSuffixes": [".py"],
         "replaceStrings": {
           "python \"${CLAUDE_PLUGIN_ROOT}/.claude/skills/ui-ux-pro-max/scripts/search.py\"": "python3 \"<skill-directory>/scripts/search.py\"",

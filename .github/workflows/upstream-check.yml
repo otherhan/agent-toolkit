@@ -45,8 +45,16 @@ jobs:
           git commit -m "chore: update vendored upstream modules"
           git push --force origin "HEAD:$branch"
 
-          if gh pr view "$branch" --json number >/dev/null 2>&1; then
-            gh pr edit "$branch" \
+          open_pr="$(
+            gh pr list \
+              --state open \
+              --head "$branch" \
+              --json number \
+              --jq '.[0].number // empty'
+          )"
+
+          if [[ -n "$open_pr" ]]; then
+            gh pr edit "$open_pr" \
               --title "chore: update vendored upstream modules" \
               --body "Automated upstream refresh. Review Skill instructions, scripts, licensing, trigger policy, and the complete diff before merging."
           else

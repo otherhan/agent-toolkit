@@ -124,6 +124,18 @@ def strip_trailing_whitespace(staged: Path, transforms: dict[str, Any]) -> None:
         path.write_text(normalized, encoding="utf-8")
 
 
+def exclude_paths(staged: Path, transforms: dict[str, Any]) -> None:
+    for relative in transforms.get("excludePaths", []):
+        target = staged / relative
+        ensure_inside(staged, target)
+        if target.is_dir():
+            shutil.rmtree(target)
+        elif target.is_file():
+            target.unlink()
+        else:
+            raise RuntimeError(f"excluded path does not exist: {target}")
+
+
 def copy_overlay(root: Path, staged: Path, overlay: str | None) -> None:
     if not overlay:
         return
@@ -201,6 +213,7 @@ def sync_module(
         source = checkout / module["sourcePath"]
         staged = Path(temp) / "staged"
         shutil.copytree(source, staged)
+        exclude_paths(staged, module.get("transforms", {}))
         normalize_frontmatter(staged / "SKILL.md", module.get("transforms", {}))
         replace_strings(staged / "SKILL.md", module.get("transforms", {}))
         strip_trailing_whitespace(staged, module.get("transforms", {}))
