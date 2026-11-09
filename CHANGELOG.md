@@ -5,6 +5,10 @@ the source of truth for installed plugin releases.
 
 ## Unreleased
 
+- Keep frontend-design available for implicit invocation; require explicit
+  invocation for programmatic-seo, ui-ux-pro-max, and web-design-guidelines.
+  Preserve invocation policies in upstream overlays.
+
 - Moved the A-share data and analysis capability to the private
   `a-stock-analysis` plugin so the public marketplace contains only broadly
   reusable public tools.

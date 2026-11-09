@@ -35,6 +35,10 @@ Start a new Codex task after installing or updating a plugin so newly available 
 
 Third-party modules are pinned to an upstream commit, retain attribution and licensing, and are updated through reviewed pull requests.
 
+Frontend Design can be selected automatically for relevant design tasks.
+Programmatic SEO, UI/UX Pro Max, and Web Design Guidelines require explicit
+invocation (for example, `$ui-ux-pro-max`).
+
 ## Repository model
 
 - `.agents/plugins/marketplace.json` is the marketplace catalog.

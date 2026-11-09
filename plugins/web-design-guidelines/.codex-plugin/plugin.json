@@ -1,6 +1,6 @@
 {
   "name": "web-design-guidelines",
-  "version": "0.1.0+upstream.1a2c79d",
+  "version": "0.1.1+upstream.1a2c79d",
   "description": "Vercel's web design review skill, vendored and version-locked for Codex.",
   "author": {
     "name": "Vercel",
