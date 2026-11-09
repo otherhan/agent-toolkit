@@ -2,3 +2,6 @@ interface:
   display_name: "Web Design Guidelines"
   short_description: "Audit web UI for accessibility and UX issues"
   default_prompt: "Use $web-design-guidelines to review these frontend files."
+
+policy:
+  allow_implicit_invocation: false
