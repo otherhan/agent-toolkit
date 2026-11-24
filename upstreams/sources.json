@@ -64,6 +64,20 @@
           "Use WebFetch to retrieve the latest rules.": "Use Codex's available web browsing tool to retrieve the latest rules."
         }
       }
+    },
+    {
+      "id": "modern-web-guidance",
+      "plugin": "modern-web-guidance",
+      "repository": "https://github.com/GoogleChrome/modern-web-guidance.git",
+      "ref": "main",
+      "sourcePath": "skills",
+      "skillNames": [
+        "modern-web-guidance",
+        "chrome-extensions"
+      ],
+      "destination": "plugins/modern-web-guidance/skills",
+      "mode": "vendor",
+      "updatePolicy": "pull-request"
     }
   ]
 }

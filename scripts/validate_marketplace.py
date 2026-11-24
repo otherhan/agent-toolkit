@@ -73,7 +73,11 @@ def parse_frontmatter(path: Path, errors: list[str]) -> dict[str, str]:
         return {}
 
     values: dict[str, str] = {}
+    block_key = None
     for line in lines[1:end]:
+        if block_key and line.startswith(" "):
+            values[block_key] += " " + line.strip()
+            continue
         if not line.strip():
             continue
         if ":" not in line:
@@ -84,6 +88,10 @@ def parse_frontmatter(path: Path, errors: list[str]) -> dict[str, str]:
         if key in values:
             errors.append(f"duplicate frontmatter key {key}: {path}")
         values[key] = value.strip().strip("\"'")
+
+        block_key = key if value.strip() in {"|", ">"} else None
+        if block_key:
+            values[block_key] = ""
 
     extra = set(values) - ALLOWED_SKILL_KEYS
     if extra:
@@ -197,7 +205,11 @@ def validate_upstreams(root: Path, marketplace_name: str, errors: list[str]) -> 
             continue
         ids.add(module_id)
         destination = root / str(module.get("destination", ""))
-        if not inside(root, destination) or not (destination / "SKILL.md").exists():
+        skill_dirs = [destination / name for name in module.get("skillNames", ["."])]
+        if not skill_dirs or any(
+            not inside(root, folder) or not (folder / "SKILL.md").is_file()
+            for folder in skill_dirs
+        ):
             errors.append(f"invalid upstream destination for {module_id}: {destination}")
         if module.get("mode") != "vendor":
             errors.append(f"unsupported upstream mode for {module_id}")
