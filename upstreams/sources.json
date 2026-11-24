@@ -59,10 +59,7 @@
       "updatePolicy": "pull-request",
       "overlayPath": "overlays/web-design-guidelines",
       "transforms": {
-        "stripFrontmatterKeys": ["metadata"],
-        "replaceStrings": {
-          "Use WebFetch to retrieve the latest rules.": "Use Codex's available web browsing tool to retrieve the latest rules."
-        }
+        "stripFrontmatterKeys": ["metadata"]
       }
     },
     {
