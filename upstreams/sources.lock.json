@@ -16,6 +16,10 @@
     "web-design-guidelines": {
       "resolvedCommit": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
       "syncedAt": "2026-11-02T11:09:02Z"
+    },
+    "modern-web-guidance": {
+      "resolvedCommit": "2b4aa13a72dd47cd135b06ce5abfccd92e19b24f",
+      "syncedAt": "2026-11-24T05:36:26Z"
     }
   }
 }
