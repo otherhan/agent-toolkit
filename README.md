@@ -28,6 +28,7 @@ Start a new Codex task after installing or updating a plugin so newly available 
 | Plugin | Ownership | Purpose |
 | --- | --- | --- |
 | `media-tools` | First-party | Local media processing and verification |
+| `modern-web-guidance` | Google Chrome / Apache-2.0 and CC BY 4.0 | Modern Web Guidance and Chrome Extensions |
 | `frontend-design` | Anthropic / Apache-2.0 | Distinctive production frontend design |
 | `programmatic-seo` | Corey Haines / MIT | Scalable SEO page strategy and quality |
 | `ui-ux-pro-max` | Next Level Builder / MIT | Searchable UI/UX design intelligence |

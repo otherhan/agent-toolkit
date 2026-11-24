@@ -5,6 +5,8 @@ the source of truth for installed plugin releases.
 
 ## Unreleased
 
+- Add Modern Web Guidance and Chrome Extensions as one plugin pinned to a shared upstream revision.
+
 - Keep frontend-design available for implicit invocation; require explicit
   invocation for programmatic-seo, ui-ux-pro-max, and web-design-guidelines.
   Preserve invocation policies in upstream overlays.

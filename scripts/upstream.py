@@ -212,10 +212,17 @@ def sync_module(
 
         source = checkout / module["sourcePath"]
         staged = Path(temp) / "staged"
-        shutil.copytree(source, staged)
+        skill_names = module.get("skillNames")
+        if skill_names:
+            for name in skill_names:
+                shutil.copytree(source / name, staged / name)
+        else:
+            shutil.copytree(source, staged)
         exclude_paths(staged, module.get("transforms", {}))
-        normalize_frontmatter(staged / "SKILL.md", module.get("transforms", {}))
-        replace_strings(staged / "SKILL.md", module.get("transforms", {}))
+        skill_dirs = [staged / name for name in skill_names] if skill_names else [staged]
+        for skill_dir in skill_dirs:
+            normalize_frontmatter(skill_dir / "SKILL.md", module.get("transforms", {}))
+            replace_strings(skill_dir / "SKILL.md", module.get("transforms", {}))
         strip_trailing_whitespace(staged, module.get("transforms", {}))
         copy_overlay(root, staged, module.get("overlayPath"))
 
