@@ -5,6 +5,8 @@ the source of truth for installed plugin releases.
 
 ## Unreleased
 
+- Refresh Programmatic SEO, UI/UX Pro Max and Web Design Guidelines, including the bundled interface rules.
+
 - Add Modern Web Guidance and Chrome Extensions as one plugin pinned to a shared upstream revision.
 
 - Keep frontend-design available for implicit invocation; require explicit
