@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "modules": {
     "frontend-design": {
-      "resolvedCommit": "ca45fc496a3436251f191354091d557da31c15b5",
-      "syncedAt": "2026-11-02T11:09:00Z"
+      "resolvedCommit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "syncedAt": "2026-11-24T05:54:42Z"
     },
     "programmatic-seo": {
       "resolvedCommit": "8fd2fcade2fd6629026e9dfe6d133b55b36968b9",
